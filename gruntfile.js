@@ -1,8 +1,6 @@
 module.exports = function(grunt) {
 
   // Libs
-  var jquery = 'build/js/lib/jquery.min.js';
-  var modernizr = 'build/js/lib/modernizr.min.js';
   var bootstrap = 'build/js/lib/bootstrap.min.js';
 
   // Main JS
@@ -27,7 +25,7 @@ module.exports = function(grunt) {
 
     concat: {
       options: {
-        separator: '\n'
+        separator: '\n\n\n'
       },
       js: {
         src: [bootstrap, mainjs],
