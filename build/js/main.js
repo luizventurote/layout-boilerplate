@@ -1,1 +1,1 @@
-console.log('Layout Boilerplate ;)');
+console.log('Layout Boilerplate)');

@@ -2,6 +2,7 @@ module.exports = function(grunt) {
 
   // Libs
   var bootstrap = 'build/js/lib/bootstrap.min.js';
+  var jquery = 'build/js/lib/jquery.min.js';
 
   // Main JS
   var mainjs = 'build/js/main.js';
@@ -28,11 +29,11 @@ module.exports = function(grunt) {
         separator: '\n\n\n'
       },
       js: {
-        src: [bootstrap, mainjs],
+        src: [jquery, bootstrap, mainjs],
         dest: 'js/main.js'
       },
       css: {
-        src: ['css/lib/bootstrap.min.css', 'css/cache-style.css'],
+        src: ['build/css/bootstrap.min.css', 'css/cache-style.css'],
         dest: 'css/style.css'
       }
     }, // concat
