@@ -122,5 +122,7 @@ module.exports = function(grunt) {
   grunt.registerTask('concat_css', ['concat:css']);
   grunt.registerTask('clean_sass', ['clean:sass']);
   grunt.registerTask('clean_project', ['clean:project']);
+  grunt.registerTask('wsass', ['watch:sass']);
+  grunt.registerTask('wjs', ['watch:js']);
 
 };
