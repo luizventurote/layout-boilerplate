@@ -14,9 +14,25 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
 
     watch: {
-      scripts: {
+      build: {
         files: ['**/*.js', '**/*.scss', '**/*.html', '**/*.php'],
-        tasks: ['concat', 'uglify', 'sass', 'concat_css', 'cssmin', 'clean'],
+        tasks: ['concat', 'uglify', 'sass', 'concat_css', 'cssmin', 'clean_sass'],
+        options: {
+          spawn: false,
+          livereload: true 
+        },
+      },
+      sass: {
+        files: ['**/*.scss', '**/*.html', '**/*.php'],
+        tasks: ['sass', 'concat_css', 'cssmin', 'clean_sass'],
+        options: {
+          spawn: false,
+          livereload: true 
+        },
+      },
+      js: {
+        files: ['**/*.js', '**/*.html', '**/*.php'],
+        tasks: ['concat', 'uglify'],
         options: {
           spawn: false,
           livereload: true 
@@ -78,7 +94,12 @@ module.exports = function(grunt) {
     }, // copy
 
     clean: {
-      build: {
+      // Deletes files generated in the project construction
+      project: {
+        src: ['js/main.js', 'js/main.min.js', 'css/style.css', 'css/style.min.css']
+      },
+      // Deletes css files generated in the project construction
+      sass: {
         src: ['css/cache-style.css', '.sass-cache']
       }
     } // clean
@@ -96,8 +117,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
 
   // Default task(s).
-  grunt.registerTask('default', ['uglify', 'concat_js', 'sass', 'concat_css', 'cssmin', 'clean']);
+  grunt.registerTask('default', ['concat_js', 'uglify', 'sass', 'concat_css', 'cssmin', 'clean_sass']);
   grunt.registerTask('concat_js', ['concat:js']);
   grunt.registerTask('concat_css', ['concat:css']);
+  grunt.registerTask('clean_sass', ['clean:sass']);
+  grunt.registerTask('clean_project', ['clean:project']);
 
 };
