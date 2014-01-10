@@ -20,7 +20,7 @@ module.exports = function(grunt) {
     watch: {
       build: {
         files: ['**/*.js', '**/*.scss', '**/*.html', '**/*.php'],
-        tasks: ['concat', 'uglify', 'sass', 'concat_css', 'cssmin', 'clean_sass'],
+        tasks: ['concat', 'uglify', 'sass', 'concat_css', 'cssmin'],
         options: {
           spawn: false,
           livereload: true 
