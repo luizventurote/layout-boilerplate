@@ -1,25 +1,32 @@
 // === Mixins ================================================================================== //
 // Border Radius
 @mixin borderRadius($radius: 5px) {
-	-webkit-border-radius:  $radius;
-	-moz-border-radius: 	$radius;
-	border-radius: 			$radius;
+    -webkit-border-radius:  $radius;
+    -moz-border-radius:     $radius;
+    border-radius:          $radius;
 }
 
 // Box Shadow
 @mixin boxShadow($x:5px , $y:5px, $blur:5px, $color:#000) {
-	-webkit-box-shadow: $x $y $blur $color;
-	-moz-box-shadow:    $x $y $blur $color;
-	box-shadow:         $x $y $blur $color;
+    -webkit-box-shadow: $x $y $blur $color;
+    -moz-box-shadow:    $x $y $blur $color;
+    box-shadow:         $x $y $blur $color;
+}
+
+// Box Shadow Inset
+@mixin boxShadowInset($x:0px , $y:0px, $blur:0px, $spread: 1px, $color:#000) {
+    -webkit-box-shadow: inset $x $y $blur $spread $color;
+    -moz-box-shadow: inset $x $y $blur $spread $color;
+    box-shadow: inset $x $y $blur $spread $color;
 }
 
 // Transition Effect
 @mixin transitionEffect($time:0.25s){
-	-webkit-transition: all $time ease-in-out;
-	-moz-transition: 	all $time ease-in-out;
-	-o-transition: 		all $time ease-in-out;
-	-ms-transition: 	all $time ease-in-out;
-	transition: 		all $time ease-in-out;
+    -webkit-transition: all $time ease-in-out;
+    -moz-transition:    all $time ease-in-out;
+    -o-transition:      all $time ease-in-out;
+    -ms-transition:     all $time ease-in-out;
+    transition:         all $time ease-in-out;
 }
 
 // Opacity
@@ -41,12 +48,54 @@
     transform: translateY($value);
 }
 
+// Gradient
+@mixin linear-gradient($fromColor, $toColor) {
+  background-color: $toColor; /* Fallback Color */
+  background-image: -webkit-gradient(linear, left top, left bottom, from($fromColor), to($toColor)); /* Saf4+, Chrome */
+  background-image: -webkit-linear-gradient(top, $fromColor, $toColor); /* Chrome 10+, Saf5.1+, iOS 5+ */
+  background-image:    -moz-linear-gradient(top, $fromColor, $toColor); /* FF3.6 */
+  background-image:     -ms-linear-gradient(top, $fromColor, $toColor); /* IE10 */
+  background-image:      -o-linear-gradient(top, $fromColor, $toColor); /* Opera 11.10+ */
+  background-image:         linear-gradient(top, $fromColor, $toColor);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#{$fromColor}', EndColorStr='#{$toColor}');
+}
+
+// Vertical Align
+@mixin VerticalAlign($value: 50%, $value-negative: -50%) {
+    position: relative;
+    top: $value;
+    -webkit-transform: translateY(- $value);
+    -ms-transform: translateY(- $value);
+    transform: translateY(- $value);
+}
+
+.vertical-align {
+    @include VerticalAlign();
+}
+
+// Rotate
+@mixin Rotate($value: 0deg) {
+  -webkit-transform: rotate($value);
+  -moz-transform: rotate($value);
+  -ms-transform: rotate($value);
+  -o-transform: rotate($value);
+  transform: rotate($value);
+}
+
+.rotate-45 {
+  @include Rotate(45deg);
+}
+
 // Effects
 .effect {
     @include transitionEffect();
 }
 
-// Transparent 
+.no-effect {
+    @include transitionEffect(0);
+}
+
+// Transparent
 .transparent {
-    @include Opacity(0.8);  
+    @include Opacity(0.8);
 }
