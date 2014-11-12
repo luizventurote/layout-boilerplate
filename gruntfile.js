@@ -3,17 +3,6 @@ module.exports = function (grunt) {
 
     // IP
     var ip_project = "127.0.0.1";
-
-    // Js Libs
-    var bootstrap = 'build/js/lib/bootstrap.min.js';
-    var jquery = 'build/js/lib/jquery.min.js';
-
-    // CSS Libs
-    var bootstrap_css = 'build/css/bootstrap.min.css';
-    var font_awesome_css = 'build/css/font-awesome.min.css'
-
-    // Main JS
-    var mainjs = 'build/js/main.js';
   
     grunt.initConfig({
 
@@ -55,7 +44,7 @@ module.exports = function (grunt) {
 
         }, // watch
 
-        sass: {                            
+        sass: {                             
           dist: {               
             options: {                    
               style: 'expanded'
@@ -71,11 +60,11 @@ module.exports = function (grunt) {
             separator: '\n\n\n'
           },
           js: {
-            src: [jquery, bootstrap, mainjs],
+            src: ['build/js/lib/**/*.js', 'build/js/elements/**/*.js'],
             dest: 'js/main.js'
           },
           css: {
-            src: [bootstrap_css, font_awesome_css, 'css/cache-style.css'],
+            src: ['build/css/**/*.css', 'css/cache-style.css'],
             dest: 'css/style.css'
           }
         }, // concat
@@ -137,15 +126,15 @@ module.exports = function (grunt) {
                   host : ip_project,
 
                   // Intervalo das portas
-                  ports: {
-                      min: 3000,
-                      max: 3002
-                  },
+                  // ports: {
+                  //     min: 3000,
+                  //     max: 3002
+                  // },
 
                   // Atribuíndo um diretório base
-                  server: {
-                      baseDir: "."
-                  },
+                  // server: {
+                  //     baseDir: "."
+                  // },
 
                   // Recarrega quando o css é alterado
                   injectChanges: false,
