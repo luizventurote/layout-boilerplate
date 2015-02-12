@@ -1,4 +1,10 @@
-// This shows a full config file!
+/**
+ * Layout Boilerplate
+ *
+ * @version     v1.0.3
+ * @link        https://github.com/luizventurote/layout-boilerplate
+ * @author      Luiz Venturote (https://github.com/luizventurote)
+ */
 module.exports = function (grunt) {
 
     // IP

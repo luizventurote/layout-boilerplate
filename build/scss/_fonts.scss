@@ -1,4 +1,6 @@
-// === Fonts =================================================================================== //
+// ==============================================
+// Fonts
+// ==============================================
 @font-face {
     font-family: 'open_sanslight';
     src: url('../fonts/OpenSans-Light-webfont.eot');
@@ -32,16 +34,19 @@
     font-style: normal;
 }
 
+// ----------------------------------------------
 // Font Light
 @mixin FontLight() {
 	font-family: 'open_sanslight', Helvetica, Arial, sans-serif;
 }
 
+// ----------------------------------------------
 // Font Regular
 @mixin FontRegular() {
 	font-family: 'open_sansregular', Helvetica, Arial, sans-serif;
 }
 
+// ----------------------------------------------
 // Font Bold
 @mixin FontBold() {
 	font-family: 'open_sanssemibold', Helvetica, Arial, sans-serif;
